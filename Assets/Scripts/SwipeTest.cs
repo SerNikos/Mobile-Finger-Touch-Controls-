@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class SwipeTest : MonoBehaviour
 {
+    private GameObject player;
+
+   
     //We need a max time and min distance in order to identify a swipe movement
     public float maxTime; // a good value would be 0.5f 
     public float minSwipeDist; //a good value would be 50
@@ -21,7 +24,7 @@ public class SwipeTest : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        player = GameObject.Find("player");
     }
 
     // Update is called once per frame
@@ -80,6 +83,7 @@ public class SwipeTest : MonoBehaviour
                 if (distance.y > 0)
                 {
                     Debug.Log("Up Swipe!");
+                    player.GetComponent<PlayerJump>().jump();
                 }
                 if (distance.y < 0)
                 {
